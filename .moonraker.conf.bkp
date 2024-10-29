@@ -22,6 +22,9 @@ trusted_clients =
 subscriptions = 
 	octoeverywhere
 
+[file_manager]
+enable_object_processing = True
+
 [history]
 
 [octoprint_compat]
@@ -66,7 +69,7 @@ managed_services = klipper
 primary_branch = main
 install_script = install.sh
 
-[update_manager client mainsail]
+[update_manager mainsail]
 type = web
 repo = mainsail-crew/mainsail
 path = ~/mainsail
@@ -77,6 +80,17 @@ primary_branch = master
 path = ~/mainsail-config
 origin = https://github.com/mainsail-crew/mainsail-config.git
 managed_services = klipper
+
+[update_manager timelapse]
+type = git_repo
+primary_branch = main
+path = ~/moonraker-timelapse
+origin = https://github.com/mainsail-crew/moonraker-timelapse.git
+managed_services = klipper moonraker
+
+[timelapse]
+output_path = ~/printer_data/timelapse/
+frame_path = /tmp/timelapse/printer
 
 [update_manager octoeverywhere]
 type = git_repo
