@@ -4,11 +4,6 @@ port = 7125
 klippy_uds_address = ~/printer_data/comms/klippy.sock
 
 [authorization]
-cors_domains = 
-	https://my.mainsail.xyz
-	http://my.mainsail.xyz
-	http://*.local
-	http://*.lan
 trusted_clients = 
 	10.0.0.0/8
 	127.0.0.0/8
@@ -17,6 +12,11 @@ trusted_clients =
 	192.168.0.0/16
 	FE80::/10
 	::1/128
+cors_domains = 
+	https://my.mainsail.xyz
+	http://my.mainsail.xyz
+	http://*.local
+	http://*.lan
 
 [announcements]
 subscriptions = 
@@ -51,6 +51,12 @@ path = ~/crowsnest
 origin = https://github.com/mainsail-crew/crowsnest.git
 managed_services = crowsnest
 install_script = tools/install.sh
+
+[update_manager kiauh]
+type = git_repo
+path = ~/kiauh
+origin = https://github.com/th33xitus/kiauh.git
+is_system_service = False
 
 [update_manager Klipper-Adaptive-Meshing-Purging]
 type = git_repo
